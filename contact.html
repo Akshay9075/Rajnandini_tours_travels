@@ -159,42 +159,22 @@
 						</div>														
 					</div>
 					<div class="col-lg-8 mt-4 bounce-in">
-						<form class="form-area contact-form text-right" action="https://formsubmit.co/kurhepatil012@gmail.com" method="POST">
+						<div id="success-message" style="display:none;color:green;font-size:18px;margin-top:20px;">
+						✅ Thank You! Your Request Submitted Successfully.
+						</div>
+						<form id="myForm" action="https://formsubmit.co/kurhepatil012@gmail.com" method="POST">
+
+						<input type="hidden" name="_captcha" value="false">
 						
-							<div class="row">	
-							<div class="col-lg-6 form-group">
-							<input type="hidden" name="_next" value="https://akshay9075.github.io/Rajnandini_tours_travels/thankyou.html">
-							<input name="name" placeholder="Enter your name"
-							class="common-input mb-20 form-control" required type="text">
-							
-							<input name="email" placeholder="Enter email address"
-							class="common-input mb-20 form-control" required type="email">
-							
-							<input name="subject" placeholder="Enter subject"
-							class="common-input mb-20 form-control" required type="text">
-							
-							</div>
-							
-							<div class="col-lg-6 form-group">
-							
-							<textarea class="common-textarea form-control"
-							name="message" placeholder="Enter Message" required></textarea>
-							
-							</div>
-							
-							<div class="col-lg-12">
-							
-							<input type="hidden" name="_captcha" value="false">
-							<input type="hidden" name="_subject" value="New Cab Booking">
-							
-							<button class="genric-btn primary" style="float:right;">
-							Send Message
-							</button>
-							
-							</div>
-							
-							</div>
-							</form>
+						<input name="name" placeholder="Enter your name" required type="text">
+						<input name="email" placeholder="Enter email" required type="email">
+						<input name="subject" placeholder="Enter subject" required type="text">
+						
+						<textarea name="message" placeholder="Enter Message" required></textarea>
+						
+						<button type="submit">Send Message</button>
+						
+						</form>
 						</div>
 					</div>
 				</div>	
@@ -246,8 +226,34 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 				<!-- <img class="footer-bottom" src="img/footer-bottom.png" alt=""> -->
 			</footer>		
-			<!-- End footer Area -->	
 
+			<script>
+
+			const form = document.getElementById("myForm");
+			
+			form.addEventListener("submit", function(e){
+			
+			e.preventDefault();
+			
+			fetch(form.action, {
+			method: "POST",
+			body: new FormData(form),
+			headers: { 'Accept': 'application/json' }
+			})
+			.then(response => {
+			
+			document.getElementById("success-message").style.display = "block";
+			
+			form.reset();
+			
+			})
+			.catch(error => alert("Something went wrong"));
+			
+			});
+			
+			</script>
+			<!-- End footer Area -->	
+			
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>			
@@ -264,6 +270,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="js/animations.js"></script>
 		</body>
 	</html>
+
 
 
 
