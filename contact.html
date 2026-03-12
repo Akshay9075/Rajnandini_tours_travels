@@ -162,7 +162,7 @@
 					<div class="col-lg-8 mt-4 bounce-in">
 						
 					<form class="form-area contact-form text-right" id="myForm" action="https://formsubmit.co/rajnandinienterprises26@gmail.com" method="POST">
-					
+
 					<div class="row">	
 					
 					<div class="col-lg-6 form-group">
@@ -172,6 +172,13 @@
 					onblur="this.placeholder = 'Enter your name'"
 					class="common-input mb-20 form-control"
 					required type="text">
+					
+					<input name="mobile" placeholder="Enter mobile number"
+					onfocus="this.placeholder = ''"
+					onblur="this.placeholder = 'Enter mobile number'"
+					class="common-input mb-20 form-control"
+					pattern="[0-9]{10}"
+					required type="tel">
 					
 					<input name="email" placeholder="Enter email address"
 					pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
@@ -312,6 +319,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="js/animations.js"></script>
 		</body>
 	</html>
+
 
 
 
